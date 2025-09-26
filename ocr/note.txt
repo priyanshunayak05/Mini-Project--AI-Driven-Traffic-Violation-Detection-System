@@ -1,0 +1,5 @@
+pip install -r requirements.txt
+npm init -y
+npm install express multer body-parser
+python plate_ocr.py D:\email\ocr\uploads\d1.JPG
+curl.exe -X POST http://localhost:3000/upload -F "image=@uploads/d1.JPG"
