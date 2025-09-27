@@ -3,7 +3,7 @@
 ![Traffic AI Banner](https://img.shields.io/badge/AI%20Project-Traffic%20Detection-blue?style=for-the-badge&logo=ai)
 
 ### Team Members
-- **Aryan Pratap** – AI Model Training, Flask Integration, Core AI Development  
+- **Aryan Pratap** – AI Model Training, Flask Integration, Core AI Development, Developer Dashboard (using React.js, Node.js, Python(Flask))
 - **Ishu Agrawal** – Backend API Development, Database Management, OCR, Email System  
 - **Priyanshu Nayak** – Frontend (React.js), User Dashboard, UI/UX  
 
