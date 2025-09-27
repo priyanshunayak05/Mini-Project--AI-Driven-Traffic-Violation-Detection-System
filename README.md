@@ -39,14 +39,16 @@ A smarter, AI-powered system that **detects and reports traffic violations autom
 
 ---
 
-## ⚙️ System Workflow
-graph TD
+### WorkFlow
 
-A[Camera Input] --> B[YOLOv8 Violation Detection]
-B --> C[EasyOCR Number Plate Recognition]
-C --> D[Backend API (Node.js)]
-D --> E[MongoDB Database]
-D --> F[Frontend Dashboard (React.js)]
-E --> G[Email Service: e-Challan]
+```mermaid
+graph LR
+    A[Camera Input] --> B[YOLOv8 Violation Detection]
+    B --> C[EasyOCR Number Plate Recognition]
+    C --> D[Backend API NodeJS]
+    D --> E[MongoDB Database]
+    D --> F[Frontend Dashboard ReactJS]
+    E --> G[Email Service eChallan]
+
 
 
