@@ -32,6 +32,7 @@ A smarter, AI-powered system that **detects and reports traffic violations autom
 | **Real-Time Violation Detection** | Detects helmet violations, triple-riding, red light jumps |
 | **Automated Fine Issuance** | Sends e-challans with photo evidence via email |
 | **User Dashboard** | Vehicle owners can view/manage their violation records |
+| **Developer Dashboard** | Provides admin/developer controls to monitor system status, view logs, and manage violations in real-time |
 
 ---
 
