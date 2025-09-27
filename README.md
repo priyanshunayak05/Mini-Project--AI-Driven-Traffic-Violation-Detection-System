@@ -45,3 +45,23 @@ C --> D[Backend API (Node.js)]
 D --> E[MongoDB Database]
 D --> F[Frontend Dashboard (React.js)]
 E --> G[Email Service: e-Challan]
+
+
+</details>
+
+### 🔧 What Changed
+1. **Blank line after `graph TD`** → required for GitHub Mermaid.  
+2. **Replaced `( )` and `.`** with safe text:  
+   - `Backend API (Node.js)` → `Backend API - NodeJS`  
+   - `Frontend Dashboard (React.js)` → `Frontend Dashboard - ReactJS`  
+3. **Kept each connection on its own line** for clarity.
+
+---
+
+### 💡 If You Want to Link Your Developer Dashboard URL
+GitHub Mermaid **does not allow clickable links inside nodes** directly.  
+But you can **add a normal Markdown link below the diagram**, e.g.:
+
+```markdown
+🔗 [Developer Dashboard](https://your-developer-dashboard-url.com)
+
