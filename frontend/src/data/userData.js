@@ -16,7 +16,7 @@ export const userData = {
             "fineAmount": 1000,
             "status": "Pending",
             "evidence": {
-              "screenshot": "https://example.com/screenshots/challan1.png"
+              "screenshot": "pic1.png"
             }
           },
           {
@@ -27,7 +27,7 @@ export const userData = {
             "fineAmount": 2000,
             "status": "Paid",
             "evidence": {
-              "screenshot": "https://example.com/screenshots/challan2.png"
+              "screenshot": "pic2.png"
             }
           }
         ]
@@ -44,7 +44,7 @@ export const userData = {
             "fineAmount": 500,
             "status": "Pending",
             "evidence": {
-              "screenshot": "https://example.com/screenshots/challan3.png"
+              "screenshot": "pic3.png"
             }
           }
         ]

@@ -17,7 +17,7 @@ export const ChallanCard = ({ challan, onPayNow, onViewReceipt, onShare, onDispu
 
     {challan.evidence?.screenshot && (
       <div className="mb-4">
-        <img src={challan.evidence.screenshot} alt="Evidence" className="rounded-lg w-full h-40 object-cover border" />
+        <img src={challan.evidence.screenshot} alt="Evidence" className="rounded-lg w-full h-110 object-cover border" />
       </div>
     )}
     
