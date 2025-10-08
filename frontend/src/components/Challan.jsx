@@ -1,6 +1,7 @@
 import React from 'react';
 import { Calendar, MapPin, AlertTriangle, IndianRupee, CreditCard, FileText, Share2 } from 'lucide-react';
 import { formatDate, getVehicleIcon, getStatusColor } from '../utils/helpers';
+// import {userData} from '../data/userData';
 
 // Challan Card Component
 export const ChallanCard = ({ challan, onPayNow, onViewReceipt, onShare, onDispute }) => (
@@ -17,7 +18,7 @@ export const ChallanCard = ({ challan, onPayNow, onViewReceipt, onShare, onDispu
 
     {challan.evidence?.screenshot && (
       <div className="mb-4">
-        <img src={challan.evidence.screenshot} alt="Evidence" className="rounded-lg w-full h-40 object-cover border" />
+        <img src={challan.evidence.screenshot} alt="Evidence" className="rounded-lg w-full h-70 object-cover border" />
       </div>
     )}
     
