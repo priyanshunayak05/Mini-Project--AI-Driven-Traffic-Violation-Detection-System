@@ -35,7 +35,7 @@ export default function Violation() {
             <p className="text-gray-500">[waiting for events...]</p>
           ) : (
             violations.map((v, i) => (
-              <div key={i} className="mb-1 flex flex-row justify-between">
+              <div key={i} className="even:bg-zinc-200/70 mb-1 flex flex-row justify-between">
                 <span>[{new Date(v.timestamp).toLocaleTimeString()}]</span>
                 <span className="flex items-center w-28">{v.violation_type.toUpperCase()}</span>
                 <span>confidence: <span className={`font-bold ${(v.accuracy * 100).toFixed(1) > 60 ? "text-green-700" : "text-red-500"}`}>{(v.accuracy * 100).toFixed(1)}%</span></span>
@@ -52,17 +52,26 @@ export default function Violation() {
         </div>
 
       </div>
-
-      <div className="flex flex-wrap gap-2 p-2 rounded-md border-dashed border border-slate-400 mt-2 h-full">
-        {violations.length === 0 ? (
-          <p className="text-gray-500">[waiting for events...]</p>
-        ) : (
-          violations.map((v, i) => (
-            <div key={i} className="h-fit mb-1 flex flex-wrap p-1 rounded-md border-dashed border border-slate-500">
-              <img src={`data:image/jpeg;base64,${v.crop_image}`} alt="" className="w-20 h-fit rounded-md"/>
-            </div>
-          ))
-        )}
+      <div className="h-[250px] py-2">
+        <div className="bg-slate-200 rounded-t-md p-2">
+          <span></span>
+          <p>Detected Images</p>
+        </div>
+        <div className="flex flex-wrap gap-2 p-2 border-dashed border border-slate-400 h-full overflow-auto">
+          {violations.length === 0 ? (
+            <p className="text-gray-500">[waiting for events...]</p>
+          ) : (
+            violations.map((v, i) => (
+              <div key={i} className="h-fit mb-1 flex flex-wrap p-1 rounded-md border-dashed border border-slate-500">
+                <img src={`data:image/jpeg;base64,${v.crop_image}`} alt="" className="w-20 h-fit rounded-md"/>
+              </div>
+            ))
+          )}
+        </div>
+        <div className="bg-slate-200 rounded-b-md p-2 flex flex-row gap-2">
+          <p>Total Images</p>
+          <p className="text-green-600">{violations.length}</p>
+        </div>
       </div>
     </div>
   );

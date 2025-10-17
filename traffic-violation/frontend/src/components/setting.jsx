@@ -10,7 +10,6 @@ const Setting = function({ngrok_url, setNgrok_url}){
 	const [notification, setNotification] = useState(null);
 	const [selectModel, setSelectModel] = useState(null);
 	const [loading, setLoading] = useState(false);
-	const [currentCamera, setCurrentCamera] = useState(null);
 
 	useEffect(() => {
 		let ignore = false;
@@ -20,6 +19,7 @@ const Setting = function({ngrok_url, setNgrok_url}){
 				setLoading(true);
 				const res = await fetch(`${API_BASE}/models`);
 				const result = await res.json();
+				console.log(result);
 				if (res.ok && !ignore) {
 					setModels(result.models);
 					setCurrentModel(result.current_model);

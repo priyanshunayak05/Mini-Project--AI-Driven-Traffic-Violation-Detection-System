@@ -10,7 +10,7 @@ from ultralytics import YOLO
 with open("current_model.txt", "r") as f:
     model_name = f.read().strip()
 
-model = YOLO(model_name, task="detect")
+model = YOLO(f"models/{model_name}", task="detect")
 
 app = Flask(__name__)
 CORS(app)
@@ -131,6 +131,41 @@ def violation_stream():
                 yield f"data: {data}\n\n"
             time.sleep(0.2)
     return Response(event_stream(), mimetype='text/event-stream')
+
+def get_current_model():
+    with open('current_model.txt', 'r') as f:
+        current_model = f.read()
+    print(current_model)
+    return current_model
+        
+@app.route('/models')
+def get_model():
+    model = ['best.onnx', 'latest.onnx']
+    print(model)
+    current_model = get_current_model()
+    return jsonify({
+        'models': model,
+        'current_model': current_model
+    })
+
+@app.route('/change_model', methods=['POST'])
+def change_model():
+	global model
+	data = request.get_json()
+	name = data.get('model') if data else None
+	print(name)
+     
+	try:
+		if(name):
+			model = YOLO(f'models/{name}', task="detect")
+			with open('current_model.txt', 'w') as f:
+				f.write(name)
+                    
+	except Exception as e:
+		return jsonify({'error': str(e)}), 500
+		
+	
+	return jsonify({'status': 'success', 'current_model': name})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

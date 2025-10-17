@@ -4,8 +4,9 @@ import { FaEdit, FaTimes, FaWifi } from "react-icons/fa";
 const API_BACKEND = import.meta.env.VITE_BACKEND;
 
 const Backend_url = ({ setNotification, ngrok_url, setNgrok_url }) => {
-  const [url, setUrl] = useState(null);
+  const [url, setUrl] = useState("");
   const [loading, setLoading] = useState(false);
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     const get_url = async () => {
@@ -14,7 +15,7 @@ const Backend_url = ({ setNotification, ngrok_url, setNgrok_url }) => {
         const res = await fetch(`${API_BACKEND}/api/backend`);
         const result = await res.json();
         if (res.ok && result.url) {
-          setUrl(result.url.url);
+          setNgrok_url(result.url.url);
         }
       } catch (err) {
         setNotification({ error: err.message });
@@ -28,15 +29,15 @@ const Backend_url = ({ setNotification, ngrok_url, setNgrok_url }) => {
 
   const handle_save_url = async () => {
     try {
-      if (ngrok_url) {
+      if (url) {
         const res = await fetch(`${API_BACKEND}/api/save_url`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ url: ngrok_url }),
+          body: JSON.stringify({ url: url }),
         });
         if (res.ok) {
-          setUrl(ngrok_url);
-          setNgrok_url("");
+          setNgrok_url(url);
+          setUrl("");
           setNotification({ status: "Successfully URL added 🥳" });
         }
       }
@@ -64,13 +65,13 @@ const Backend_url = ({ setNotification, ngrok_url, setNgrok_url }) => {
             <div className="w-fit h-fit p-2.5 border-3 border-t-transparent border-green-500 rounded-full animate-spin"></div>
             <p>Loading Backend url...</p>
           </div>
-        ) : ngrok_url?.length > 0 ? (
+        ) : !edit ? (
           <div className="flex flex-row gap-2 items-center bg-slate-500 rounded-md border border-slate-500">
             <FaEdit
               className="p-1.5 w-full h-full bg-white text-green-500 rounded-md cursor-pointer"
               onClick={() => {
-                setNgrok_url(url || "");
-                setUrl("");
+                setEdit(true);
+                setUrl(ngrok_url);
               }}
             />
             <span className="px-2 text-white">{ngrok_url}</span>
@@ -79,18 +80,21 @@ const Backend_url = ({ setNotification, ngrok_url, setNgrok_url }) => {
           <div className="w-full flex flex-row gap-2">
             <input
               type="text"
-              value={ngrok_url}
+              value={url}
               placeholder="Enter Python Backend Ngrok Url ..."
               className="w-full bg-white rounded-md px-2 py-1 text-black outline outline-slate-400 focus:outline-slate-700"
-              onChange={(e) => setNgrok_url(e.target.value)}
+              onChange={(e) => setUrl(e.target.value)}
             />
             <button
               className="px-2 bg-red-200 rounded-md cursor-pointer"
-              onClick={() => setUrl(ngrok_url)}
+              onClick={() => {
+                setUrl("");
+                setEdit(false);
+              }}
             >
               <FaTimes className="text-red-500" />
             </button>
-            {ngrok_url && (
+            {url && (
               <button
                 className="px-2 p-1 bg-green-500 text-green-200 rounded focus:bg-green-800 cursor-pointer"
                 onClick={handle_save_url}

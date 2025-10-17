@@ -52,7 +52,7 @@ function Upload({ngrok_url}) {
     try {
       const result = await stopStream(ngrok_url);
       setNotification(result.result);
-      setVideoUrl("");
+      setVideoUrl(null);
       setSend(null);
     } catch (err) {
       console.error(err);
@@ -62,12 +62,15 @@ function Upload({ngrok_url}) {
 
   useEffect(() => {
     setVideoUrl(`${ngrok_url}/video?t=${Date.now()}`);
+    if(!send){
+      setVideoUrl(null);
+    }
   }, [send]);
 
   useEffect(() => {
     if(!send) return;
     setSend(mode);
-    setVideoUrl("");
+    setVideoUrl(null);
   }, [mode]);
 
   const formatSize = (bytes) => {
@@ -107,27 +110,24 @@ function Upload({ngrok_url}) {
                 </div>
 
                 {videoFile ?
-                  <div className="relative w-full p-2 border-2 border-dashed border-slate-200 rounded overflow-hidden">
-                    <div className="absolute inset-0 z-20 left-auto p-3">
-                      <FaEllipsisV className="h-7 w-7 p-1 bg-white/50 rounded-full text-slate-600 hover:bg-white/80 cursor-pointer"/>
-                    </div>
+                  <div className="relative flex flex-row h-64 p-2 border-2 border-dashed border-slate-200 rounded overflow-hidden">
                     <video
                       src={URL.createObjectURL(videoFile)}
                       controls
-                      className="w-full rounded "
+                      className="rounded h-full w-1/2 object-cover"
                     />
-                    <div className="p-2 font-semibold">
-                      <div className="w-full text-sm flex justify-between items-center">
-                        <span className="">Video name</span>
-                        <span className="px-2 p-1 rounded bg-slate-200/60 text-slate-600">{videoFile.name}</span>
-                        <span>{videoFile.type}</span>
-                        <span>{formatSize(videoFile.size)}</span>
-                        <span>{new Date(videoFile.lastModifiedDate).toLocaleString()}</span>
+                    <div className="ml-2 rounded-md bg-slate-200/50 w-full p-2 font-semibold">
+                      <div className="w-full text-sm flex flex-col gap-2">
+                        <span className="font-bold">Video name</span>
+                        <span className="px-2 p-1 rounded bg-white text-slate-600">{videoFile.name}</span>
+                        <span><span className="font-bold">Type:</span> {videoFile.type}</span>
+                        <span><span className="font-bold">Size:</span> {formatSize(videoFile.size)}</span>
+                        <span><span className="font-bold">Date:</span> {new Date(videoFile.lastModifiedDate).toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
                   :
-                  <Media handleMedia={handleVideoChange} accept="video/*" />
+                  <Media handleMedia={handleVideoChange} accept="video/*"/>
                 }
               </div>
               )}

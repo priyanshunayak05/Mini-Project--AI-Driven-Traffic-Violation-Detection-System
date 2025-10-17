@@ -4,6 +4,7 @@ const Backend = require('../models/backend');
 
 router.get('/backend', async (req, res) => {
 	try{
+		console.log("hello");
 		const url = await Backend.findOne();
 		console.log(url);
 		res.status(200).json({url, status: 'Sucessfully url added!'});
