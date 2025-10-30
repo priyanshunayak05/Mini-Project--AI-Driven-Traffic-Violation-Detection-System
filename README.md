@@ -2,7 +2,11 @@
 
 ![Traffic AI Banner](https://img.shields.io/badge/AI%20Project-Traffic%20Detection-blue?style=for-the-badge&logo=ai)
 
-🔗 Live demo: [Developer Dashboard](https://traffic-violation.onrender.com/developer)
+🔗 Live demo:
+
+[Developer Dashboard](https://traffic-violation.onrender.com/developer)
+
+[Frontend Dashboard](https://mini-project-ai-driven-traffic-violation.onrender.com/dashboard/)
 
 
 ### Team Members
