@@ -7,8 +7,8 @@ export const DashboardHeader = ({ user, notifications }) => (
     <div className="flex justify-between items-start">
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Traffic Challan Dashboard</h1>
-        <p className="text-gray-600 mt-1">Welcome, {user.name}</p>
-        <p className="text-sm text-gray-500">License: {user.licenseNumber}</p>
+        <p className="text-gray-600 mt-1">Welcome, {user?.name}</p>
+        <p className="text-sm text-gray-500">License: {user?.licenseNumber}</p>
       </div>
       <div className="flex items-center gap-4">
         <div className="relative">

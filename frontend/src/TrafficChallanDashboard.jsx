@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { userData, notificationsData } from './data/userData';
+import { notificationsData } from './data/userData';
 import { getAllChallans } from './utils/helpers';
 import { DashboardHeader, StatsOverview, NavigationTabs } from './components/Navigation';
 import { DisputeModal } from './components/Challan';
@@ -9,8 +9,7 @@ import Pending from './components/Pending';
 import Notification from './components/Notification';
 import Receipt from './components/Receipt';
 
-const TrafficChallanDashboard = () => {
-  console.log('User Data:', userData); // Debugging line
+const TrafficChallanDashboard = ({user}) => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [filterStatus, setFilterStatus] = useState('all');
   const [selectedChallan, setSelectedChallan] = useState(null);
@@ -19,7 +18,6 @@ const TrafficChallanDashboard = () => {
   const [receiptChallan, setReceiptChallan] = useState(null);
   const [notifications] = useState(notificationsData);
 
-  const user = userData.user;
   const allChallans = getAllChallans(user);
   const pendingChallans = allChallans.filter(c => c.status === 'Pending');
   const totalFineAmount = pendingChallans.reduce((sum, c) => sum + c.fineAmount, 0);
@@ -79,7 +77,7 @@ const TrafficChallanDashboard = () => {
           allChallans={allChallans}
           pendingChallans={pendingChallans}
           totalFineAmount={totalFineAmount}
-          vehicleCount={user.vehicles.length}
+          vehicleCount={user?.vehicles?.length}
         />
 
         <NavigationTabs activeTab={activeTab} setActiveTab={setActiveTab} tabs={tabs} />
