@@ -12,7 +12,7 @@ const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware setup
 const allowedOrigins = [
-  // 'http://localhost:5173',
+  'http://localhost:5173',
   'https://mini-project-ai-driven-traffic-violation.onrender.com'
 ];
 
