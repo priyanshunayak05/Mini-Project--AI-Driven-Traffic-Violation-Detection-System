@@ -11,7 +11,24 @@ const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware setup
-app.use(cors({ origin: 'http://localhost:5173/' })); // Allows React to make requests
+const allowedOrigins = [
+  // 'http://localhost:5173',
+  'https://mini-project-ai-driven-traffic-violation.onrender.com'
+];
+
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true,
+  })
+);
+
 app.use(express.json()); // Allows parsing of JSON request bodies
 
 // 1. Connection to MongoDB Atlas
