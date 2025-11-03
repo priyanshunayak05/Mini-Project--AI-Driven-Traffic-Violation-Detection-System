@@ -28,7 +28,7 @@ export default function Notification({ notification, setNotification }) {
 
   return (
     <div className="fixed min-w-60 top-0 right-0 p-2 transition-all duration-300 z-50 animate-fadeIn">
-      <div className={`w-full shadow-xl bg-slate-200 overflow-hidden border-l-4 ${notification?.error ? 'bg-red-600 border-red-600' : 'bg-green-500 border-green-600'}`}>
+      <div className={`w-full rounded-l-md shadow-lg bg-slate-200 overflow-hidden border-l-4 ${notification?.error ? 'bg-red-600 border-red-600' : 'bg-green-500 border-green-600'}`}>
         
         <div className={`p-2 items-center bg-white`}>
           <div className="flex gap-4 items-center justify-between">
@@ -41,7 +41,7 @@ export default function Notification({ notification, setNotification }) {
               {notification?.error ? notification.error : notification.status}
             </span>
 
-            <FaTimes className={`h-8 w-8 p-2.5 text-slate-100 rounded-md ${notification?.error ? 'hover:bg-red-600' : 'hover:bg-green-600'} cursor-pointer`}
+            <FaTimes className={`h-8 w-8 p-2.5 text-slate-200 rounded-md ${notification?.error ? 'hover:bg-red-600' : 'hover:bg-green-600'} cursor-pointer`}
               onClick={() => setNotification(null)}
             />
           </div>

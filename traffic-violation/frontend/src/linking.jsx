@@ -1,20 +1,19 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Page from './components/page_1'
 import Features from './left/features'
 import Top from './right/top';
-import { FaTimes, FaVideo } from 'react-icons/fa';
+import { FaFileUpload } from 'react-icons/fa';
 import Upload from './components/upload';
 import Setting from './components/setting';
 
 function Linking() {
-  const [activeFeature, setActiveFeature] = useState({name: "Live Streaming", icon: <FaVideo />});
+  const [activeFeature, setActiveFeature] = useState({name: "Upload File", icon: <FaFileUpload />});
   const [ngrok_url, setNgrok_url] = useState('http://localhost:5000');
 
   return (
 	<div className='h-screen sm:h-screen w-full'>
-	  <div className='h-full w-full flex flex-row'>
-		<div className="h-full w-fit">
+	  <div className='h-full w-full flex sm:flex-row flex-col'>
+		<div className="sm:h-full sm:w-fit h-fit w-full">
 		  <Features 
 		  setActiveFeature={setActiveFeature}
 		  activeFeature={activeFeature}
@@ -24,12 +23,7 @@ function Linking() {
 		  <div className='sticky z-20 top-0 bg-white'>
 			<Top activeFeature={activeFeature}/>
 		  </div>
-		  {activeFeature?.name === 'Live Streaming' ?
-			<Page
-			 ngrok_url={ngrok_url}
-			/>
-			:
-			activeFeature?.name === "Upload File" ?
+		  {activeFeature?.name === "Upload File" ?
 			<Upload 
 			 ngrok_url={ngrok_url}
 			/>

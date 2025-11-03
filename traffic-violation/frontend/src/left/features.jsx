@@ -5,7 +5,6 @@ function Features({activeFeature, setActiveFeature}) {
   const [open, setOpen] = useState(false);
 
   const features = [
-    { name: "Live Streaming", icon: <FaVideo /> },
     { name: "Upload File", icon: <FaFileUpload /> },
     { name: "Challan Management", icon: <FaCarCrash /> },
     { name: "Analytics", icon: <FaChartLine /> },
@@ -14,16 +13,16 @@ function Features({activeFeature, setActiveFeature}) {
 
   return (
     <div
-      className={`h-full bg-gradient-to-b
+      className={`h-full w-full bg-gradient-to-b
         from-slate-900 from-20% 
         via-slate-800 via-70% 
         to-blue-700 to-140% 
         transition-all duration-300 ease-in-out ${
         open ? "w-56" : "w-fit"
-      } flex flex-col`}
+      } flex sm:flex-col justify-between`}
     >
-      <div className="p-2 border-gray-700 flex justify-between items-center">
-        {open && <span className="text-white font-bold text-lg">Features</span>}
+      <div className="sm:flex hidden p-2 border-gray-700 flex justify-between items-center">
+        {open && <span className="sm:flex hidden text-white font-bold text-lg">Features</span>}
         <button 
           onClick={() => setOpen(!open)}
           className={`${open ? "w-fit" : "w-full"} text-lg flex justify-center p-2 rounded hover:bg-gray-700 transition-colors cursor-pointer`}
@@ -37,7 +36,11 @@ function Features({activeFeature, setActiveFeature}) {
         </button>
       </div>
 
-      <div className="flex-1 flex flex-col mt-4 px-2 space-y-1 overflow-y-auto">
+      <div className="sm:hidden flex text-white items-center px-2">
+        <p className="font-semibold italic">Traffic Vioaltion</p>
+      </div>
+
+      <div className="max-w-fit flex-1 flex gap-1 sm:flex-col sm:mt-4 sm:px-2 p-2 overflow-y-auto">
         {features.map((f, idx) => (
           <button
             key={idx}
@@ -52,7 +55,7 @@ function Features({activeFeature, setActiveFeature}) {
               {f.icon}
             </span>
             {open && (
-              <span className="text-sm font-medium whitespace-nowrap">
+              <span className="sm:flex hidden text-sm font-medium whitespace-nowrap">
                 {f.name}
               </span>
             )}

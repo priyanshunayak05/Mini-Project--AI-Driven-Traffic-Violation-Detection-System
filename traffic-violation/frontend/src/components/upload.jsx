@@ -4,6 +4,7 @@ import Notification from "./notification";
 import Side_Bar from "../tags/side_bar";
 import { FaEllipsisH, FaEllipsisV, FaTimes } from "react-icons/fa";
 import Violation from "./violation";
+import Page from "./page_1";
 
 function Upload({ngrok_url}) {
   const [videoFile, setVideoFile] = useState(null);
@@ -97,7 +98,7 @@ function Upload({ngrok_url}) {
           <div className="flex flex-col">
             <div className="w-full">
               {mode === "video" && (
-              <div className="w-full bg-white rounded p-4 flex flex-col gap-4">
+              <div className="w-full p-4 flex flex-col gap-4">
                 <div className="flex justify-between items-center">
                   <label className="font-medium">Upload Video</label>
                   {videoFile &&
@@ -146,18 +147,22 @@ function Upload({ngrok_url}) {
                 }
               </div>
               )}
+
+              {mode === "live" &&
+              <Page ngrok_url={ngrok_url}/>
+              }
             </div>
 
-            {(videoFile || imageFile) && (
-              <div className="h-fit px-4 flex md:flex-row justify-between">
+            {(videoFile || imageFile) && (mode !== "live") && (
+              <div className="h-fit px-4 flex gap-1 md:flex-row justify-end text-sm">
                 <button
-                  className="px-2 p-1 bg-green-500 text-white rounded-lg"
+                  className="px-2 p-1 bg-green-500 text-white"
                   onClick={handlesend_video}
                 >
                   Send {mode}
                 </button>
                 <button
-                  className="px-2 p-1 bg-red-500 text-white rounded-lg hover:bg-red-700 cursor-pointer"
+                  className="px-2 p-1 bg-red-500 text-white hover:bg-red-700 cursor-pointer"
                   onClick={handleCancel}
                 >
                   Cancel

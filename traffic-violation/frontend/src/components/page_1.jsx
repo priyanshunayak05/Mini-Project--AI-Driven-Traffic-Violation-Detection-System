@@ -45,16 +45,16 @@ export default function Page({ngrok_url}) {
 
   return (
     <div className="h-full w-full p-4">
-      <div className="w-full flex flex-col gap-2 items-center">
-        <h2 className="">Controlled Live Object Detection</h2>
+      <div className="w-full flex flex-col gap-2">
+        <h2 className="font-semibold">Controlled Live Object Detection</h2>
 
-        {/* Buttons */}
+      <div className="p-1">
         <div className="flex flex-row gap-2">
           <button
             onClick={() => handleStart(null)}
             disabled={streaming}
-            className={`border p-1 px-2 rounded ${
-              !streaming ? "border" : "border-dashed cursor-not-allowed"
+            className={`bg-green-300 hover:bg-green-500 cursor-pointer p-1 px-2 ${
+              !streaming ? "" : "bg-green-500 cursor-not-allowed"
             }`}
           >
             Start
@@ -62,22 +62,23 @@ export default function Page({ngrok_url}) {
           <button
             onClick={handleStop}
             // disabled={!streaming}
-            className={`border p-1 px-2 rounded 
+            className={`p-1 px-2 bg-red-300 hover:bg-red-500 cursor-pointer
             `}
           >
             Stop
           </button>
         </div>
+      </div>
 
         {/* Video Stream */}
         {streaming && (
-          <div className="border border-gray-300 rounded mt-4">
+          <div className="border border-gray-300 rounded mt-1">
             
-            <div className="p-4">
+            <div className="p-2 bg-black">
               <img
                 src={videoUrl}
                 alt="Live Stream"
-                className="w-[640px] border border-zinc-400 rounded"
+                className="w-[640px]"
               />
             </div>
           </div>
