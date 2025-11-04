@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import User from './models/User.js';
+import seedDummyData from './models/sendDummy.js'; // Import to seed dummy data
 
 dotenv.config(); // Load variables from .env
 
@@ -12,7 +13,7 @@ const MONGO_URI = process.env.MONGO_URI;
 
 // Middleware setup
 const allowedOrigins = [
-  // 'http://localhost:5173',
+  'http://localhost:5173',
   'https://mini-project-ai-driven-traffic-violation.onrender.com'
 ];
 
@@ -42,6 +43,9 @@ const connectDB = async () => {
   }
 };
 connectDB();
+// Seed dummy data
+
+// seedDummyData();
 
 app.get('/', (req, res) => { 
   res.send('Traffic Challan Management System API is running');
@@ -57,7 +61,6 @@ app.get('/api/:email', async (req, res) => {
     const {email} = req.params;
     console.log(email);
     const user = await User.findOne({email: email}); // Fetch all users for demo purposes 
-    console.log('Fetched User Data:', user); // Debugging line  
     if (!user) {
       return res.status(404).json({ msg: 'User not found' });
     }

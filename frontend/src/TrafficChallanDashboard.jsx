@@ -8,15 +8,19 @@ import History from './components/History';
 import Pending from './components/Pending';
 import Notification from './components/Notification';
 import Receipt from './components/Receipt';
+import ShareModal from './components/ShareModal';
 
 const TrafficChallanDashboard = ({user}) => {
   const [activeTab, setActiveTab] = useState('dashboard');
   const [filterStatus, setFilterStatus] = useState('all');
   const [selectedChallan, setSelectedChallan] = useState(null);
+  const [isShareOpen, setIsShareOpen] = useState(false);
   const [showDispute, setShowDispute] = useState(false);
+
   const [page, setPage] = useState('dashboard');
   const [receiptChallan, setReceiptChallan] = useState(null);
   const [notifications] = useState(notificationsData);
+
 
   const allChallans = getAllChallans(user);
   const pendingChallans = allChallans.filter(c => c.status === 'Pending');
@@ -35,12 +39,17 @@ const TrafficChallanDashboard = ({user}) => {
 
   // Event handlers
   const handlePayNow = (challanId) => {
-    alert(`Redirecting to payment gateway for Challan ID: ${challanId}`);
-  };
+  console.log("Clicked Pay Now for:", challanId);
+  
+  // open in new tab
+  window.open("https://razorpay.me/@adeshkumar6020", "_blank");
+};
 
-  const handleShare = (challan) => {
-    alert(`Sharing challan ${challan.challanId} via email/WhatsApp`);
-  };
+
+ const handleShare = (challan) => {
+  setSelectedChallan(challan);
+  setIsShareOpen(true);
+};
 
   const handleDispute = (challan) => {
     setSelectedChallan(challan);
@@ -125,6 +134,12 @@ const TrafficChallanDashboard = ({user}) => {
           challan={selectedChallan}
           onClose={handleDisputeClose}
         />
+
+          <ShareModal
+    challan={selectedChallan}
+    isOpen={isShareOpen}
+    onClose={() => setIsShareOpen(false)}
+  />
       </div>
     </div>
   );

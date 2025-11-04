@@ -18,7 +18,7 @@ const usersData = [
             location: "Hazratganj, Lucknow",
             fineAmount: 1000,
             status: "Pending",
-            evidence: { screenshot: "pic1.png" }
+            evidence: { screenshot: "pic2.png" }
           },
           {
             challanId: "CHL20250821-002",
@@ -27,7 +27,7 @@ const usersData = [
             location: "Ring Road, Lucknow",
             fineAmount: 2000,
             status: "Paid",
-            evidence: { screenshot: "pic2.png" }
+            evidence: { screenshot: "pic1.png" }
           }
         ]
       },
