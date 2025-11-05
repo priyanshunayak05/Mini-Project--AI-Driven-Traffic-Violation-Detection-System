@@ -103,7 +103,7 @@ const Receipt = ({ challan, onBack }) => {
             <h2 className="text-lg font-semibold text-gray-700 mb-3">Evidence</h2>
             <div className="border border-gray-200 rounded-lg overflow-hidden">
               <img 
-                src={challan.evidence.screenshot} 
+                src={`/${challan.evidence.screenshot}`} 
                 alt="Challan Evidence" 
                 className="w-full h-64 object-contain bg-gray-100" 
               />
