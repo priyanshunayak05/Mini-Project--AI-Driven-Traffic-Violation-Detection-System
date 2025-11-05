@@ -6,18 +6,28 @@ import Data from "./data";
 
 // Component to handle email param
 function DashboardWithEmail() {
+  const { email } = useParams();
   const [user, setUser] = useState(null);
-  const { email } = useParams(); // get email from URL
-
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {/* Pass email to Data */}
-      <Data email={email} setUser={setUser}/>
-      <TrafficChallanDashboard user={user}/>
+      <Data email={email} setUser={setUser} setLoading={setLoading} />
+
+      {loading ? (
+  <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-r from-indigo-200 via-blue-100 to-indigo-300">
+    <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-indigo-600 mb-4"></div>
+    <p className="text-indigo-700 font-semibold text-lg tracking-wide">
+      Loading data...
+    </p>
+  </div>
+) : (
+  <TrafficChallanDashboard user={user} />
+)}
     </>
   );
 }
+
 
 function App() {
   return (

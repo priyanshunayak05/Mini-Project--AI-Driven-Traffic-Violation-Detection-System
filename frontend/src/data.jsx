@@ -1,31 +1,28 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 const apiUrl = import.meta.env.VITE_API_URL;
-console.log("API URL:", apiUrl);    
 
-const Data = function({email, setUser}){
-    const [loading, setLoading] = useState(true);
+const Data = ({ email, setUser, setLoading }) => {
+  useEffect(() => {
+    if (!email) return;
 
-    useEffect(() => {
-        if(!email) return;
+    const fetchData = async () => {
+      try {
         setLoading(true);
-        const res = async function(){
-            const response = await fetch(`${apiUrl}/api/${email}`);
-            const data = await response.json();
-            console.log(data);
-            setUser(data);
-            setLoading(false);
-        }
-        res();
-    }, [])
-    return(
-        <>
-        {loading &&
-        <div className="w-full h-screen flex items-center justify-center">
-            loading ....
-        </div>
-        }
-        </>
-    )
-}
+        const response = await fetch(`${apiUrl}/api/${email}`);
+        const data = await response.json();
+        console.log("Fetched data:", data);
+        setUser(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [email]);
+
+  return null; // no UI here, only data fetching
+};
 
 export default Data;

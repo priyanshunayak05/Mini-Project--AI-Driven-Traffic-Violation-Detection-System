@@ -1,28 +1,55 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Landing = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-  });
+const apiUrl = import.meta.env.VITE_API_URL;
 
+const Landing = () => {
+  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    setError(""); // clear previous error
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!formData.email) {
-      alert("Please enter your email");
+    const { name, email } = formData;
+
+    if (!name || !email) {
+      setError("Please enter both name and email.");
       return;
     }
 
-    // Navigate to /dashboard/:email
-    navigate(`/dashboard/${encodeURIComponent(formData.email)}`);
+    try {
+      setLoading(true);
+      const response = await fetch(`${apiUrl}/api/${email}`);
+
+      if (!response.ok) {
+        // if backend returns 404 or error
+        setError("User not found!");
+        setLoading(false);
+        return;
+      }
+
+      const data = await response.json();
+      if (!data || Object.keys(data).length === 0) {
+        setError("User not found!");
+        setLoading(false);
+        return;
+      }
+
+      // ✅ Valid user → navigate to dashboard
+      navigate(`/dashboard/${encodeURIComponent(email)}`);
+    } catch (err) {
+      console.error("Error during login:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -37,10 +64,7 @@ const Landing = () => {
 
         {/* Name Input */}
         <div className="mb-6">
-          <label
-            htmlFor="name"
-            className="block text-gray-700 font-semibold mb-2"
-          >
+          <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
             Name
           </label>
           <input
@@ -57,10 +81,7 @@ const Landing = () => {
 
         {/* Email Input */}
         <div className="mb-6">
-          <label
-            htmlFor="email"
-            className="block text-gray-700 font-semibold mb-2"
-          >
+          <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
             Email
           </label>
           <input
@@ -75,12 +96,24 @@ const Landing = () => {
           />
         </div>
 
+        {/* Error Message */}
+        {error && (
+          <p className="text-red-600 text-sm mb-4 text-center font-medium">
+            {error}
+          </p>
+        )}
+
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition-all duration-300"
+          disabled={loading}
+          className={`w-full py-2 rounded-lg font-semibold transition-all duration-300 ${
+            loading
+              ? "bg-indigo-400 cursor-not-allowed"
+              : "bg-indigo-600 hover:bg-indigo-700 text-white"
+          }`}
         >
-          Continue to Dashboard
+          {loading ? "Checking..." : "Continue to Dashboard"}
         </button>
       </form>
     </div>
