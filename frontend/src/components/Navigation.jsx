@@ -2,7 +2,7 @@ import React from 'react';
 import { Bell, FileText, Clock, IndianRupee, Car, Filter } from 'lucide-react';
 
 // Header Component
-export const DashboardHeader = ({ user, notifications }) => (
+export const DashboardHeader = ({ user }) => (
   <div className="bg-white rounded-lg shadow-md p-6 mb-6">
     <div className="flex justify-between items-start">
       <div>
@@ -13,13 +13,7 @@ export const DashboardHeader = ({ user, notifications }) => (
       <div className="flex items-center gap-4">
         <div className="relative">
           <Bell className="w-6 h-6 text-gray-600" />
-          {notifications.length > 0 && (
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-            
-            >
-              {notifications.length}
-            </span>
-          )}
+          
         </div>
       </div>
     </div>

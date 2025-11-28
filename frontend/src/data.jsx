@@ -8,7 +8,7 @@ const Data = ({ email, setUser, setLoading }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(`${apiUrl}/api/${email}`);
+        const response = await fetch(`${apiUrl}/api/user-dashboard/${email}`);
         const data = await response.json();
         console.log("Fetched data:", data);
         setUser(data);

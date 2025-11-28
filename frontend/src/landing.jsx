@@ -26,7 +26,7 @@ const Landing = () => {
 
     try {
       setLoading(true);
-      const response = await fetch(`${apiUrl}/api/${email}`);
+      const response = await fetch(`${apiUrl}/api/user-dashboard/${email}`);
 
       if (!response.ok) {
         // if backend returns 404 or error

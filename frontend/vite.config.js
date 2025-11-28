@@ -6,6 +6,6 @@ export default defineConfig({
   plugins: [react()],
     server: {
     host: true,   // or "0.0.0.0" → allows access from LAN
-    port: 5173,   // optional, default is 5173
+    port: 8000,   // optional, default is 5173
   },
 })

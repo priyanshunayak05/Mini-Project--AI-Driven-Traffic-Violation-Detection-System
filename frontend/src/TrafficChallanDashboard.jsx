@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
-import { notificationsData } from './data/userData';
 import { getAllChallans } from './utils/helpers';
 import { DashboardHeader, StatsOverview, NavigationTabs } from './components/Navigation';
 import { DisputeModal } from './components/Challan';
 import Dashboard from './components/Dashboard';
 import History from './components/History';
 import Pending from './components/Pending';
-import Notification from './components/Notification';
 import Receipt from './components/Receipt';
 import ShareModal from './components/ShareModal';
 
@@ -19,7 +17,6 @@ const TrafficChallanDashboard = ({user}) => {
 
   const [page, setPage] = useState('dashboard');
   const [receiptChallan, setReceiptChallan] = useState(null);
-  const [notifications] = useState(notificationsData);
 
 
   const allChallans = getAllChallans(user);
@@ -34,7 +31,6 @@ const TrafficChallanDashboard = ({user}) => {
     { key: 'dashboard', label: 'Dashboard' },
     { key: 'history', label: 'Challan History' },
     { key: 'pending', label: 'Pending Challans' },
-    { key: 'notifications', label: 'Notifications' }
   ];
 
   // Event handlers
@@ -80,7 +76,7 @@ const TrafficChallanDashboard = ({user}) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="mx-auto p-6">
-        <DashboardHeader user={user} notifications={notifications} />
+        <DashboardHeader user={user} />
         
         <StatsOverview 
           allChallans={allChallans}
