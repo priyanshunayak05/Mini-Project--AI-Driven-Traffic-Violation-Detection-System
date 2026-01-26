@@ -25,7 +25,7 @@ An **AI-powered intelligent traffic monitoring system** that automatically detec
 
 <img width="100%" alt="Developer Dashboard Logs" src="https://github.com/user-attachments/assets/1f6418c2-34e7-4181-bf8b-b4b46c46e244" />
 
-<img width="1910" height="905" alt="image" src="https://github.com/user-attachments/assets/bb97392e-b17d-440a-a574-3108d483e8ea" />
+<img width="1917" height="906" alt="image" src="https://github.com/user-attachments/assets/39a76aab-3698-4e32-8e23-b1bc99b7aaeb" />
 
 ### 📧 Automated e-Challan
 
