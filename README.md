@@ -1,73 +1,126 @@
 # 🚦 AI-Driven Traffic Violation Detection System
 
-![Traffic AI Banner](https://img.shields.io/badge/AI%20Project-Traffic%20Detection-blue?style=for-the-badge&logo=ai)
+![AI Project Badge](https://img.shields.io/badge/AI%20Project-Traffic%20Violation%20Detection-blue?style=for-the-badge)
+![Tech Stack](https://img.shields.io/badge/Tech-YOLOv8%20|%20OCR%20|%20MERN%20|%20Flask-green?style=for-the-badge)
 
-🔗 Live demo:
-
-[Developer Dashboard](https://traffic-violation.onrender.com/developer)
-
-[Frontend Dashboard](https://mini-project-ai-driven-traffic-violation.onrender.com/dashboard/)
-
-<img width="1919" height="1022" alt="Screenshot 2025-11-28 212843" src="https://github.com/user-attachments/assets/1895826e-f9f8-4aed-b1bc-9b57d2995de2" />
-
-
-
-### Team Members
-- **Aryan Pratap** – AI Model Training, Flask Integration, Core AI Development, Developer Dashboard (using React.js, Node.js, Python(Flask))
-- **Ishu Agrawal** – Backend API Development, Database Management, OCR, Email System  
-- **Priyanshu Nayak** – Frontend (React.js), User Dashboard, UI/UX  
-
-**Mentor:** Prof. Yunis Lone  
-**Institute:** GLA University, Mathura | B.Tech CSE-AIML & IoT (V Sem)
+An **AI-powered intelligent traffic monitoring system** that automatically detects traffic violations, extracts vehicle details, generates e-challans, and notifies offenders—minimizing manual enforcement and improving road safety.
 
 ---
 
-## 📌 Problem Statement
-Urban roads face a **road safety crisis** due to rising traffic violations:
+## 🔗 Live Demo
 
-| 🚨 Issue | ⚡ Impact |
-|---------|----------|
-| **Manual enforcement is limited** | Police presence cannot cover all roads 24/7 |
-| **High violation rate** | Helmet non-compliance, triple-riding, red light jumping |
-| **Compromised safety** | Frequent evasion of penalties undermines traffic laws |
+- **Developer Dashboard**  
+  https://traffic-violation.onrender.com/developer  
+
+- **User Dashboard**  
+  https://mini-project-ai-driven-traffic-violation.onrender.com/dashboard/
 
 ---
 
-## 💡 Our Solution
-A smarter, AI-powered system that **detects and reports traffic violations automatically**:
+## 📸 Project Preview
+
+<img width="100%" alt="Traffic Violation Dashboard" src="https://github.com/user-attachments/assets/1895826e-f9f8-4aed-b1bc-9b57d2995de2" />
+
+---
+
+## 🎯 Problem Statement
+
+Urban traffic systems face a growing **road safety and enforcement challenge**:
+
+| 🚨 Challenge | ⚡ Impact |
+|-------------|----------|
+| Limited manual enforcement | Roads cannot be monitored 24/7 |
+| Increasing traffic violations | Helmetless riding, triple riding, red-light jumping |
+| Low accountability | Many violations go unpunished |
+| Slow penalty process | Manual challan systems are inefficient |
+
+---
+
+## 💡 Proposed Solution
+
+An **AI-driven automated traffic violation detection and reporting system** that operates continuously and scales efficiently.
+
+### 🚀 Key Features
 
 | Feature | Description |
-|--------|-------------|
-| **AI-Powered Surveillance** | Intelligent cameras monitor traffic 24/7 |
-| **Real-Time Violation Detection** | Detects helmet violations, triple-riding, red light jumps |
-| **Automated Fine Issuance** | Sends e-challans with photo evidence via email |
-| **User Dashboard** | Vehicle owners can view/manage their violation records |
-| **Developer Dashboard** | Provides admin/developer controls to monitor system status, view logs, and manage violations in real-time |
+|------|-------------|
+| **Real-Time Violation Detection** | Helmet violations, triple riding, red-light jumping |
+| **AI Video Analytics** | YOLOv8-based object & behavior detection |
+| **Automatic Number Plate Recognition** | Vehicle number extraction using EasyOCR |
+| **Automated e-Challan System** | Violation proof and fine sent via email |
+| **User Dashboard** | View violation history and evidence |
+| **Developer Dashboard** | Monitor logs, violations, and system status |
 
 ---
 
-### WorkFlow
+## 🧠 System Architecture
 
 ```mermaid
 graph LR
-    A[Camera Input] --> B[YOLOv8 Violation Detection]
+    A[Traffic Camera Input] --> B[YOLOv8 Violation Detection]
     B --> C[EasyOCR Number Plate Recognition]
-    C --> D[Backend API NodeJS]
+    C --> D[Node.js Backend API]
     D --> E[MongoDB Database]
-    D --> F[Frontend Dashboard ReactJS]
-    E --> G[Email Service eChallan]
+    D --> F[React.js Frontend Dashboard]
+    E --> G[Automated Email e-Challan Service]
 ```
+---
 
-### Images
+## 🛠️ Tech Stack
 
+### 🔹 AI & Machine Learning
+- **YOLOv8** – Real-time object & violation detection  
+- **EasyOCR** – Automatic number plate recognition  
+- **Python** – Model inference and processing  
 
-<img width="1919" height="1018" alt="Screenshot 2025-11-28 214042" src="https://github.com/user-attachments/assets/4777b059-fcdc-4d60-8c4a-d9423407b008" />
+### 🔹 Backend
+- **Node.js** – Backend runtime  
+- **Express.js** – REST API framework  
+- **Flask** – AI model integration  
+- **MongoDB** – Violation and user data storage  
 
+### 🔹 Frontend
+- **React.js** – User & developer dashboards  
+- **Tailwind CSS** – Responsive UI styling  
 
+### 🔹 Other Tools & Services
+- **REST APIs** – Communication between modules  
+- **Email Automation** – e-Challan delivery  
+- **Cloud Deployment** – Render  
 
+---
 
+## 👥 Team Members
 
+| Name | Role |
+|-----|------|
+| **Aryan Pratap** | AI model training, Flask integration, violation detection logic, Developer Dashboard |
+| **Ishu Agrawal** | Backend API development, database management, OCR pipeline, email automation |
+| **Priyanshu Nayak** | Frontend development, User Dashboard, UI/UX design |
 
+---
 
+## 🎓 Academic Details
 
+- **Mentor:** Prof. Yunis Lone  
+- **Institute:** GLA University, Mathura  
+- **Program:** B.Tech – Computer Science Engineering (AIML & IoT)  
+- **Semester:** V  
 
+---
+
+## 📈 Future Enhancements
+
+- 🚀 Speed limit violation detection  
+- 🚦 Lane discipline & wrong-way detection  
+- 📊 Traffic density analysis  
+- 🏛️ Government traffic database integration  
+- 📱 Mobile application for vehicle owners  
+
+---
+
+## 🏁 Conclusion
+
+This project demonstrates how **AI, Computer Vision, and Full-Stack Development** can modernize traffic enforcement, reduce human dependency, and improve public safety.
+
+The system is **scalable, automated, and suitable for real-world smart city deployment**.
