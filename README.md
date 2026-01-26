@@ -6,30 +6,49 @@
 An **AI-powered intelligent traffic monitoring system** that automatically detects traffic violations, extracts vehicle details, generates e-challans, and notifies offenders—minimizing manual enforcement and improving road safety.
 
 ---
-
-## 🔗 Live Demo
-
-- **Developer Dashboard:**  
-  https://traffic-violation.onrender.com/developer  
-
-- **User Dashboard:**  
-  https://mini-project-ai-driven-traffic-violation.onrender.com/dashboard/
-
----
-
 ## 📸 Project Preview
 
 ### 🧑‍💻 Developer Dashboard
 
-<img width="100%" alt="Developer Dashboard" src="https://github.com/user-attachments/assets/1895826e-f9f8-4aed-b1bc-9b57d2995de2" />
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/1895826e-f9f8-4aed-b1bc-9b57d2995de2"
+    alt="Developer Dashboard Main"
+    width="900"
+  />
+</p>
 
-<img width="100%" alt="Developer Dashboard Logs" src="https://github.com/user-attachments/assets/1f6418c2-34e7-4181-bf8b-b4b46c46e244" />
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/1f6418c2-34e7-4181-bf8b-b4b46c46e244"
+    alt="Developer Dashboard Logs"
+    width="900"
+  />
+</p>
 
-<img width="1917" height="906" alt="image" src="https://github.com/user-attachments/assets/39a76aab-3698-4e32-8e23-b1bc99b7aaeb" />
+---
+
+### 👤 User Dashboard
+
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/39a76aab-3698-4e32-8e23-b1bc99b7aaeb"
+    alt="User Dashboard"
+    width="900"
+  />
+</p>
+
+---
 
 ### 📧 Automated e-Challan
 
-<img width="655" alt="e-Challan Email" src="https://github.com/user-attachments/assets/12357f9b-a3dc-4aca-b71a-6f7bd6ed56aa" />
+<p align="center">
+  <img
+    src="https://github.com/user-attachments/assets/12357f9b-a3dc-4aca-b71a-6f7bd6ed56aa"
+    alt="e-Challan Email"
+    width="500"
+  />
+</p>
 
 ---
 
