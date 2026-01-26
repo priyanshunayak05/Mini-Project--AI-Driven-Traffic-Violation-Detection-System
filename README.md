@@ -34,7 +34,7 @@ An **AI-powered intelligent traffic monitoring system** that automatically detec
   <img
     src="https://github.com/user-attachments/assets/39a76aab-3698-4e32-8e23-b1bc99b7aaeb"
     alt="User Dashboard"
-    width="900"
+    width="500"
   />
 </p>
 
