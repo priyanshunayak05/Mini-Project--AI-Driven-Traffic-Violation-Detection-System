@@ -53,6 +53,19 @@ graph LR
     D --> E[MongoDB Database]
     D --> F[Frontend Dashboard ReactJS]
     E --> G[Email Service eChallan]
+```
+
+### Images
+
+<img width="1919" height="1022" alt="Screenshot 2025-11-28 212843" src="https://github.com/user-attachments/assets/1895826e-f9f8-4aed-b1bc-9b57d2995de2" />
+
+<img width="1919" height="1018" alt="Screenshot 2025-11-28 214042" src="https://github.com/user-attachments/assets/4777b059-fcdc-4d60-8c4a-d9423407b008" />
+
+
+
+
+
+
 
 
 
