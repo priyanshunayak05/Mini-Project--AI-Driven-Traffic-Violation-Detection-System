@@ -64,60 +64,64 @@ graph LR
     D --> F[React.js Frontend Dashboard]
     E --> G[Automated Email e-Challan Service]
 ```
-🛠️ Tech Stack
-🔹 AI & Machine Learning
-YOLOv8
+---
 
-EasyOCR
+## 🛠️ Tech Stack
 
-Python
+### 🔹 AI & Machine Learning
+- **YOLOv8** – Real-time object & violation detection  
+- **EasyOCR** – Automatic number plate recognition  
+- **Python** – Model inference and processing  
 
-🔹 Backend
-Node.js
+### 🔹 Backend
+- **Node.js** – Backend runtime  
+- **Express.js** – REST API framework  
+- **Flask** – AI model integration  
+- **MongoDB** – Violation and user data storage  
 
-Express.js
+### 🔹 Frontend
+- **React.js** – User & developer dashboards  
+- **Tailwind CSS** – Responsive UI styling  
 
-Flask (AI Model Integration)
+### 🔹 Other Tools & Services
+- **REST APIs** – Communication between modules  
+- **Email Automation** – e-Challan delivery  
+- **Cloud Deployment** – Render  
 
-MongoDB
+---
 
-🔹 Frontend
-React.js
+## 👥 Team Members
 
-Tailwind CSS
+| Name | Role |
+|-----|------|
+| **Aryan Pratap** | AI model training, Flask integration, violation detection logic, Developer Dashboard |
+| **Ishu Agrawal** | Backend API development, database management, OCR pipeline, email automation |
+| **Priyanshu Nayak** | Frontend development, User Dashboard, UI/UX design |
 
-🔹 Other Tools
-REST APIs
+---
 
-Email Automation
+## 🎓 Academic Details
 
-Cloud Deployment (Render)
+- **Mentor:** Prof. Yunis Lone  
+- **Institute:** GLA University, Mathura  
+- **Program:** B.Tech – Computer Science Engineering (AIML & IoT)  
+- **Semester:** V  
 
-👥 Team Members
-Name	Role
-Aryan Pratap	AI model training, Flask integration, violation detection logic, Developer Dashboard
-Ishu Agrawal	Backend API development, database management, OCR pipeline, email automation
-Priyanshu Nayak	Frontend development, User Dashboard, UI/UX design
-🎓 Academic Details
-Mentor: Prof. Yunis Lone
+---
 
-Institute: GLA University, Mathura
+## 📈 Future Enhancements
 
-Program: B.Tech – CSE (AIML & IoT)
+- 🚀 Speed limit violation detection  
+- 🚦 Lane discipline & wrong-way detection  
+- 📊 Traffic density analysis  
+- 🏛️ Government traffic database integration  
+- 📱 Mobile application for vehicle owners  
 
-Semester: V
+---
 
-📈 Future Enhancements
-Speed limit violation detection
+## 🏁 Conclusion
 
-Lane discipline & wrong-way detection
+This project demonstrates how **AI, Computer Vision, and Full-Stack Development** can modernize traffic enforcement, reduce human dependency, and improve public safety.
 
-Traffic density analysis
-
-Government database integration
-
-Mobile application for users
-
-🏁 Conclusion
-This project demonstrates how AI, Computer Vision, and Full-Stack Development can modernize traffic enforcement, reduce human dependency, and improve public safety.
-It is scalable, automated, and suitable for real-world smart city deployment.
+The system is **scalable, automated, and suitable for real-world smart city deployment**.
+loyment.
