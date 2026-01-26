@@ -124,4 +124,3 @@ graph LR
 This project demonstrates how **AI, Computer Vision, and Full-Stack Development** can modernize traffic enforcement, reduce human dependency, and improve public safety.
 
 The system is **scalable, automated, and suitable for real-world smart city deployment**.
-loyment.
